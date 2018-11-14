@@ -18,6 +18,17 @@ public class Calculator implements RevenueCalculator {
     return costOfGoods;
   }
   
+  public BigDecimal calculateNotPercentageMargin (BigDecimal marginPercentage){
+    BigDecimal notPercentageMargin = marginPercentage.divide(new BigDecimal(100));
+    return notPercentageMargin;
+  }
+  
+  public BigDecimal calculateDivider(BigDecimal calculateNotPercentageMargin){
+    BigDecimal divider = calculateNotPercentageMargin.subtract(new BigDecimal(1));
+    BigDecimal absOfDividerToDivideCostOfGoods = divider.abs();
+    return absOfDividerToDivideCostOfGoods;
+  }
+  
   @Override
   public BigDecimal calculateRevenue(BigDecimal marginPercentage, BigDecimal costOfGoods) {
   
