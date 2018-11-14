@@ -31,7 +31,8 @@ public class Calculator implements RevenueCalculator {
   
   @Override
   public BigDecimal calculateRevenue(BigDecimal marginPercentage, BigDecimal costOfGoods) {
-  
+    BigDecimal revenue = costOfGoods.divide(calculateDivider(calculateNotPercentageMargin(marginPercentage)));
+    return revenue;
   }
   
 }
