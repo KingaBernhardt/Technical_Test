@@ -21,6 +21,7 @@ public class CalculatorTest {
   
   @Test
   public void getCostOfGoods() {
+    assertEquals(new BigDecimal(400), calculator.getCostOfGoods());
   }
   
   @Test
