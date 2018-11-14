@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         try{
-            HashMap<String, Integer> countWords = getOccurencesFromFile("src\\text.txt");
+            HashMap<String, Integer> countWords = getOccurencesFromFile("src\\file.txt");
             getKeyValuePairs(countWords);
         } catch (FileNotFoundException e){
             e.printStackTrace();
