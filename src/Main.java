@@ -1,6 +1,32 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
     
     }
+    public static HashMap getOccurencesFromFile(String fileName) throws FileNotFoundException {
+        HashMap<String, Integer> countWords = new HashMap<String, Integer>();
+        File fileToCheck = new File(fileName);
+        Scanner fileScanner = null;
+        try {
+            fileScanner = new Scanner(fileToCheck);
+            while(fileScanner.hasNext()){
+                String word = fileScanner.next().replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+                if (countWords.containsKey(word)){
+                    countWords.put(word, countWords.get(word)+1);
+                } else {
+                    countWords.put(word, 1);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    
+        return countWords;
+    }
+    
 }
