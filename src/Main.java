@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -28,5 +30,12 @@ public class Main {
     
         return countWords;
     }
-    
+    public static void getKeyValuePairs(HashMap map){
+        Iterator mapIterator = map.entrySet().iterator();
+        System.out.println("Name "+ " = " + " Occurance");
+        while(mapIterator.hasNext()){
+            Map.Entry pairs = (Map.Entry)mapIterator.next();
+            System.out.println(pairs.getKey() + ":" + pairs.getValue()  );
+        }
+    }
 }
