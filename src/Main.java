@@ -8,7 +8,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-    
+        try{
+            HashMap<String, Integer> countWords = getOccurencesFromFile("src\\text.txt");
+            getKeyValuePairs(countWords);
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
     }
     public static HashMap getOccurencesFromFile(String fileName) throws FileNotFoundException {
         HashMap<String, Integer> countWords = new HashMap<String, Integer>();
