@@ -34,5 +34,4 @@ public class Calculator implements RevenueCalculator {
     BigDecimal revenue = costOfGoods.divide(calculateDivider(calculateNotPercentageMargin(marginPercentage)));
     return revenue;
   }
-  
 }
