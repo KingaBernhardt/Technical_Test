@@ -8,22 +8,23 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        try{
+        try {
             HashMap<String, Integer> countWords = getOccurencesFromFile("src\\file.txt");
             getKeyValuePairs(countWords);
         } catch (FileNotFoundException e){
             e.printStackTrace();
         }
     }
+    
     public static HashMap getOccurencesFromFile(String fileName) throws FileNotFoundException {
-        HashMap<String, Integer> countWords = new HashMap<String, Integer>();
+        HashMap<String, Integer> countWords = new HashMap();
         File fileToCheck = new File(fileName);
-        Scanner fileScanner = null;
+        Scanner fileScanner;
         try {
             fileScanner = new Scanner(fileToCheck);
-            while(fileScanner.hasNext()){
+            while (fileScanner.hasNext()) {
                 String word = fileScanner.next().replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-                if (countWords.containsKey(word)){
+                if (countWords.containsKey(word)) {
                     countWords.put(word, countWords.get(word)+1);
                 } else {
                     countWords.put(word, 1);
@@ -32,13 +33,13 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    
         return countWords;
     }
-    public static void getKeyValuePairs(HashMap map){
+    
+    public static void getKeyValuePairs(HashMap map) {
         Iterator mapIterator = map.entrySet().iterator();
         System.out.println("Name "+ " = " + " Occurance");
-        while(mapIterator.hasNext()){
+        while (mapIterator.hasNext()) {
             Map.Entry pairs = (Map.Entry)mapIterator.next();
             System.out.println(pairs.getKey() + ":" + pairs.getValue()  );
         }
